@@ -1,0 +1,33 @@
+.add-new-hero {
+  background: lightgrey;
+  margin: 0 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    input {
+      width: 130px;
+    }
+    select {
+      width: 135px;
+    }
+  }
+}
+
+.add-btn {
+  text-align: right;
+  button {
+    width: 135px;
+    background: black;
+    color: white;
+    font-size: 10px;
+  }
+}
+
+input.ng-touched.ng-invalid, input.ng-invalid[required]{
+  border: 1px solid red;
+}

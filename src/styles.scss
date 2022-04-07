@@ -1,0 +1,40 @@
+* {
+  font-size: 12px;
+  font-family: "Times New Roman", serif;
+}
+
+html, body {
+    background: lightgrey;
+    margin: 0;
+    font-size: 12px;
+    input, select {
+      border: 0.5px solid black;
+      border-radius: 2px;
+    }
+}
+
+h1 {
+  text-align: center;
+  background: white;
+  margin: 0;
+}
+
+.wrapper {
+  background: white;
+  margin: 10px auto;
+  width: 850px;
+  min-height: 500px;
+  display: flex;
+  justify-content: space-around;
+  padding: 25px 20px;
+}
+
+app-add-new {
+  margin-top: 0;
+  width: 300px;
+}
+
+app-view-sort {
+  margin-top: 0;
+  width: 460px;
+}

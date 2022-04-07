@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Editing of {{dialogHero.name}}</h1>
+<div class="add-new-hero">
+  <form [formGroup]="editHeroForm">
+    <div class="row">
+      <span>Имя:</span>
+      <input type="text" id="name-input" formControlName="heroName">
+    </div>
+
+    <div class="row">
+      <span>Сила:</span>
+      <input type="text" id="strong-input" formControlName="heroStrength">
+    </div>
+
+    <div formArrayName="multiPowers">
+      <div class="row" *ngFor="let power of getFormsControls()['controls']; let i = index;">
+        <span>Способности:</span>
+        <select id="lvl-input" [formControlName]="i" (change)="newPowerControl()">
+          <option *ngFor="let ability of dialogPowers" value="{{ability}}">{{ability}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <span>Начальный уровень:</span>
+      <input type="text" id="power-input" formControlName="heroLevel">
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close="" (click)="editHero(dialogHero)">Завершить редактирование</button>
+</div>

@@ -1,0 +1,64 @@
+<div class="sort" [formGroup]="sortForm">
+  <div class="part1">
+    <div class="level-sort">
+        Уровень героя: от
+        <input type="text" formControlName="sortFrom">
+        до
+        <input type="text" formControlName="sortTo">
+    </div>
+    <div class="ability-sort">
+      <span>Способности:</span>
+      <select id="lvl-input" formControlName="sortPower">
+        <option value="">All powers</option>
+        <option *ngFor="let ability of powers" value="{{ability}}">{{ability}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="part2">
+    <div class="name-sort">
+      Поиск по имени:
+      <input type="text" formControlName="sortName">
+    </div>
+    <div class="high-lvl-sort">
+      <div style="margin: 3px">
+        Сортировать по возрастанию уровня
+      </div>
+      <input type="image" src="../../../../assets/down_arrow.png" alt="1" (click)="levelSort()">
+    </div>
+  </div>
+
+  <div>
+    <button class="filter-btn" (click)="sort()">Отфильтровать</button>
+    <button class="filter-btn" (click)="resetFilter()">Сбросить фильтры</button>
+  </div>
+</div>
+
+<!--список всех героев-->
+<div class="heroes-list">
+  <div class="hero-info" *ngFor="let hero of heroes">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title style="width: 200px">
+            {{hero.name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{hero.lvl}} ур.
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="strength">
+          Сила: {{hero.strength}}
+        </div>
+        <div class="power">
+          Способности: <span *ngFor="let power of hero.power">{{power}}</span>
+        </div>
+        <div class="buttons">
+          <button class="edit-btn" (click)="openDialog(hero)">Редактировать</button>
+          <button class="del-btn" (click)="deleteHero(hero)">Удалить героя</button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+
